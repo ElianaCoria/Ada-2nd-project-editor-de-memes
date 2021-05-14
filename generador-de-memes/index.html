@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de memes</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <!-- 
+        ***********************************************************
+                                HEADER
+        ***********************************************************
+     -->
+    <header>
+        <h1 class="app-title">Generador de Memes</h1>
+        <div class="panel-theme-btns-container">
+            <div class="header-btn">
+                <button>
+                    <i class="fas fa-file-image"></i> Imagen
+                </button>
+            </div>
+            <div class="header-btn">
+                <button>
+                    <i class="fas fa-font"></i> Texto
+                </button>
+            </div>
+            <div class="header-btn">
+                <button id="dark-light-theme-btn">
+                    <i class="far fa-lightbulb"></i><span id="theme-button-text"> Modo oscuro</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- 
+        ***********************************************************
+                                CANVAS
+        ***********************************************************
+     -->
+    <main class="editor-container">
+        <div class="meme-container">
+            <p id="top-text" class="text-meme">TOP TEXT</p>
+            <div id="image-meme" class="image-meme-container" alt="Imagen meme" aria-label="Imagen de tu meme"></div>
+            <p id="bottom-text" class="text-meme">BOTTOM TEXT</p>
+        </div>
+        <div>
+            <button id="download-meme-btn">
+            <i class="fas fa-download"></i> Descargar meme
+        </button>
+        </div>
+    </main>
+    <!-- 
+        ***********************************************************
+                                EDIT PANEL
+        ***********************************************************
+     -->
+    <aside class="edit-panel"> 
+        <!-- class=section-aside-img -->
+        <div>    
+            <button>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="editor-panel-container">
+            <!-- **********Image editor panel************* -->
+            <section class="panel-subcontainer" id="image-editor-panel">
+                <!-- class=container-aside-img -->
+                <!-- Image panel title "IMAGEN"  -->
+                <h2 class="image panel-title">IMAGEN</h2>
+                <!-- class=first-title -->
+                
+                <!-- URL Form -->
+                <div class="control-panel-component">
+                    <!-- class="div-url" -->
+                    <h4 class="url component-title">URL</h4>
+                    <!-- class="url-title" -->
+                    <div class="item-component">
+                        <input type="url" name="url-img" class="url-img" id="form-url">
+                    </div>
+                </div>
+                <!-- Image background color form -->
+                <div class="control-panel-component">
+                    <!-- class="div-background" -->
+                    <h4 class="image-background component-title">FONDO</h4>
+                <!-- Background color button and select -->
+                    <div class="background-color-palette control-panel-columns">
+                        <!-- class="div-colors" -->
+                        <div class="item-column item-component">
+                            <input type="color" name="background-color" class="input-image-background-color" id="color" value="#000000">
+                            <span>#FFFFFF</span>
+                        </div>
+                        <div class="item-component">
+                            <select name="select" id="background-color-setting">
+                                <option value="option1" selected>Ninguno</option>
+                                <option value="option2">Aclarar</option>
+                                <option value="option3">Oscurecer</option>
+                                <option value="option4">Diferencia</option>
+                                <option value="option5">Luminosidad</option>
+                                <option value="option6">Multiplicar</option>
+                            </select>
+                        </div>    
+                    </div>
+                </div>
+                <!-- Image filters form -->
+                <div class="control-panel-component">
+                    <!-- class="div-filter" -->
+                    <h4 class="filter-title component-title">FILTROS</h4>
+
+                    <label class="label-title-img shine">BRILLO </label> 
+                    <input type="range" name="input-brightness" min="0" max="100" value="0" id="brightness-form" class="input-range">
+                    
+                    <label class="label-title-img">OPACIDAD </label>
+                    <input type="range" name="input-opacity" min="0" max="100" value="0"  id="opacity-form" class="input-range">
+                    
+                    <label class="label-title-img">CONTRASTE </label>
+                    <input type="range" name="input-contrast" min="0" max="100" value="0"  id="contrast-form" class="input-range">
+                    
+                    <label class="label-title-img">DESENFOQUE </label>
+                    <input type="range" name="input-blur" min="0" max="100" value="0" id="blur-form" class="input-range">
+                    <label class="label-title-img">ESCALA DE GRISES </label>
+                    <input type="range" name="input-scale" min="0" max="100" value="0" id="scale-form" class="input-range">
+                    
+                    <label class="label-title-img">SEPIA </label>
+                    <input type="range" name="input-sepia" min="0" max="100" value="0" id="sepia-form" class="input-range">
+                    
+                    <label class="label-title-img">HUE </label>
+                    <input type="range" name="input-hue" min="0" max="100" value="0" id="hue-form" class="input-range">
+                    
+                    <label class="label-title-img">SATURADO </label>
+                    <input type="range" name="input-saturated" min="0" max="100" value="0" id="saturated-form" class="input-range">
+                    
+                    <label class="label-title-img">NEGATIVO </label>
+                    <input type="range" name="input-negative" min="0" max="100" value="0" id="negative-form" class="input-range">
+                </div>
+                <button type="reset" class="button-filters" id="reset-filters-button">Reestablecer filtros</button>
+            </section>
+            <!-- **********Text editor panel************* -->
+            <section class="panel-subcontainer" id="text-editor-panel">
+                <!-- Text panel title "TEXTO"  -->
+                <h2 class="text panel-title">TEXTO</h2>
+                <!-- Top Text Form  -->
+                <div class="top-text-editor control-panel-component">
+                    <h4 class="text-editor-title component-title">SUPERIOR</h4>
+                    <textarea rows="2" cols="30" placeholder="TOP TEXT" id="top-text"></textarea>
+                    <div class="control-checkbox">
+                        <input type="checkbox" name="Selection" id="top-text-check" class="check-top">
+                        <label class="check-text">Sin texto superior</label>
+                    </div>
+                </div>
+                <!-- Bottom Text Form  -->
+                <div class="bottom-text-editor control-panel-component">
+                    <h4 class="text-editor-title component-title">INFERIOR</h4>
+                    <textarea rows="2" cols="30" placeholder="BOTTOM TEXT" id="bottom-text"></textarea>
+                    <div class="control-checkbox">
+                        <input type="checkbox" name="Selection" id="bottom-text-check" class="check-bottom">
+                        <label class="check-text">Sin texto inferior</label>
+                    </div>
+                </div>
+                <!-- Font-family; font-size; align-text Form -->
+                <div class="div-font control-panel-component">
+                    <h4 class="font-title component-title">FUENTE</h4>
+                    <div class="item-component">
+                        <select name="Font Family" id="font-family-select">
+                            <option value="Arial">Arial</option>
+                            <option value="Arial Black">Arial Black</option>
+                            <option value="American Typewriter">American Typewriter</option>
+                            <option value="Andale Mono">Andale Mono</option>
+                            <option value="Comic Sans MS">Comic Sans MS</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Impact" selected>Impact</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                        </select>
+                    </div>
+                    <div class="control-panel-columns">
+                        <div class="item-component">
+                            <input type="number" name="Font Size" id="font-size-input" value="40">
+                        </div>
+                        <div class="item-column item-component">
+                            <button class="align-text-button" id="left-align-button">
+                                <i class="fas fa-align-left"></i>
+                            </button>
+                        </div>
+                        <div class="item-column item-component">
+                            <button class="align-text-button" id="center-align-button">
+                                <i class="fas fa-align-center"></i>
+                            </button>
+                        </div>
+                        <div class="item-column item-component">
+                            <button class="align-text-button" id="right-align-button">
+                                <i class="fas fa-align-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Meme Text font color and Text background-color form -->
+                <div class="control-panel-component">
+                    <div class="control-panel-columns">
+                        <div class="meme-text-style">
+                            <h4 class="color-title component-title">COLOR</h4>
+                            <div class="item-column item-component">
+                                <input type="color" name="Meme text color" id="meme-text-color-input" value="#000000">
+                                <span>#000000</span>
+                            </div>
+                        </div>
+                        <div class="meme-text-style">
+                            <h4 class="background-title component-title">FONDO</h4>
+                            <div class="item-column item-component">
+                                <input type="color" name="Meme text background-color" id="meme-text-backgroundcolor-input" value="#FFFFFF">
+                                <span>#FFFFFF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-checkbox">
+                        <input type="checkbox" name="Selection" id="text-backgroundcolor-check">
+                        <label for="">Fondo transparente</label>
+                    </div>
+                </div>
+                <!-- Meme text contour form -->
+                <div class="control-panel-component">
+                    <h4 class="component-title">CONTORNO</h4>
+                    <div class="control-panel-columns">
+                        <div class="item-column item-component">
+                            <button id="contour-none-btn">Ninguno</button>
+                        </div>
+                        <div class="item-column item-component">
+                            <button id="contour-light-btn">Claro</button>
+                        </div>
+                        <div class="item-column item-component">
+                            <button id="contour-dark-btn">Oscuro</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Spacing Form -->
+                <div class="div-spacing control-panel-component">
+                    <h4 class="spacing-title component-title">ESPACIADO</h4>
+                    <div class="item-component">
+                        <input type="number" name="number" id="" value="35" class="input-number-spacing">
+                    </div>
+                </div>
+                <!-- Line Spacing Form -->
+                <div class="div-line-spacing control-panel-component">
+                    <h4 class="line-spacing-title component-title">INTERLINEADO</h4>
+                    <div class="item-component">
+                        <select name="select" id="spacing-select" class="line-spacing">
+                            <option value="0.8">0.8</option>
+                            <option value="1">1</option>
+                            <option value="1.2" selected>1.2</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </div>    
+    </aside>
+    <script src="script.js"></script>
+</body>
+</html>
