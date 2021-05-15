@@ -15,6 +15,7 @@ body.dark-theme{
     --vs-background-color: rgba(138, 138, 81, 0.494);
     --background-color-reset-button: #FFD700;
     --color-reset-button: #242222;
+    --reset-button-hover: #ffd900a1;
 }
 body.light-theme{
     --background-color-header: rgb(181, 177, 177);
@@ -27,7 +28,8 @@ body.light-theme{
     --background-color-slider: #5e5a5a93;
     --vs-background-color: #b5abab;
     --background-color-reset-button: #242222;
-    --color-reset-button: #FFD700;
+    --color-reset-button: #928a8a;
+    --reset-button-hover: #242222b4;
 }
 /* 
 *******************************************************
@@ -125,8 +127,8 @@ header{
     align-items: center;
     background-color: var(--background-color-editor);
 }
-.edit-panel{
-    /* width: 270px;
+#edit-panel{
+    width: 270px;
     height: 100%;
     padding: 5px;
     background-color: var(--background-color-panel);
@@ -134,9 +136,8 @@ header{
     flex-direction: column;
     position: fixed;
     top: 0;
-    right: 0;
-    overflow: scroll; */
-    display: none;
+    right: -270px;
+    overflow-y: scroll;
 }
 .editor-panel-container{
     padding: 10px;
@@ -147,12 +148,6 @@ header{
    width: 100%;
    margin: 5px;
    padding: 10px;
-}
-#image-editor-panel{
-    display: none;
-}
-#text-editor-panel{
-    display: none;
 }
 .control-panel-component{
     width: 100%;
@@ -196,7 +191,7 @@ header{
     
 }
 #reset-filters-button:hover{
-    background-color: gainsboro;
+    background-color: var(--reset-button-hover);
 }
 /* 
 *******************************************************
@@ -221,11 +216,11 @@ header{
     background-color: black;
     justify-content: space-between;
 }
-.image-meme-container{
+/* image-meme-container */
+#image-meme{
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-image: url("https://s1.1zoom.me/big3/471/Painting_Art_Back_view_Photographer_575380_3840x2400.jpg");
 }
 .text-meme{
     display: block;
@@ -262,9 +257,6 @@ header{
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-.background-color-column:hover{
-    background-color: var(--background-color-hover);
 }
 .item-component{
     height: 30px;
