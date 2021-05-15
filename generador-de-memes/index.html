@@ -45,9 +45,9 @@
      -->
     <main class="editor-container">
         <div class="meme-container">
-            <p id="top-text" class="text-meme">TOP TEXT</p>
+            <p id="meme-top-text" class="text-meme">TOP TEXT</p>
             <div id="image-meme" src="" alt="Imagen meme" aria-label="Imagen de tu meme"></div>
-            <p id="bottom-text" class="text-meme">BOTTOM TEXT</p>
+            <p id="meme-bottom-text" class="text-meme">BOTTOM TEXT</p>
         </div>
         <div>
             <button id="download-meme-btn">
@@ -102,33 +102,33 @@
                 <!-- Image filters form -->
                 <div class="control-panel-component">
                     <h4 class="component-title">FILTROS</h4>
-
+            
                     <label class="image-filter-title">BRILLO </label> 
-                    <input type="range" name="input-brightness" min="0" max="100" value="0" id="brightness-form" class="image-filter">
+                    <input type="range" name="input-brightness" min="0" max="1" step="0.1" value="1" id="brightness-form" class="image-filter">
                     
                     <label class="image-filter-title">OPACIDAD </label>
-                    <input type="range" name="input-opacity" min="0" max="100" value="0"  id="opacity-form" class="image-filter">
+                    <input type="range" name="input-opacity" min="0" max="1" step="0.1" value="1"  id="opacity-form" class="image-filter">
                     
                     <label class="image-filter-title">CONTRASTE </label>
-                    <input type="range" name="input-contrast" min="0" max="100" value="0"  id="contrast-form" class="image-filter">
+                    <input type="range" name="input-contrast" min="100" max="1000" step="1%" value="100"  id="contrast-form" class="image-filter">
                     
                     <label class="image-filter-title">DESENFOQUE </label>
-                    <input type="range" name="input-blur" min="0" max="100" value="0" id="blur-form" class="image-filter">
-                    
+                    <input type="range" name="input-blur" min="0" max="10" step="0.1" value="0" id="blur-form" class="image-filter">
+
                     <label class="image-filter-title">ESCALA DE GRISES </label>
-                    <input type="range" name="input-scale" min="0" max="100" value="0" id="scale-form" class="image-filter">
+                    <input type="range" name="input-scale" min="0" max="100" step="1" value="0" id="scale-form" class="image-filter">
                     
                     <label class="image-filter-title">SEPIA </label>
-                    <input type="range" name="input-sepia" min="0" max="100" value="0" id="sepia-form" class="image-filter">
+                    <input type="range" name="input-sepia" min="0" max="100" step="1" value="0" id="sepia-form" class="image-filter">
                     
                     <label class="image-filter-title">HUE </label>
-                    <input type="range" name="input-hue" min="0" max="100" value="0" id="hue-form" class="image-filter">
+                    <input type="range" name="input-hue" min="0" max="359" step="1" value="0" id="hue-form" class="image-filter">
                     
                     <label class="image-filter-title">SATURADO </label>
-                    <input type="range" name="input-saturated" min="0" max="100" value="0" id="saturated-form" class="image-filter">
+                    <input type="range" name="input-saturated" min="100" max="1000" step="10" value="100" id="saturated-form" class="image-filter">
                     
                     <label class="image-filter-title">NEGATIVO </label>
-                    <input type="range" name="input-negative" min="0" max="100" value="0" id="negative-form" class="image-filter">
+                    <input type="range" name="input-negative" min="0" max="1" step="0.1" value="0" id="negative-form" class="image-filter">
                 </div>
                 <button type="reset" id="reset-filters-button">Reestablecer filtros</button>
             </section>
@@ -139,18 +139,18 @@
                 <!-- Top Text Form  -->
                 <div class="control-panel-component">
                     <h4 class="component-title">SUPERIOR</h4>
-                    <textarea rows="2" cols="30" placeholder="TOP TEXT" id="top-text"></textarea>
+                    <textarea rows="2" cols="30" placeholder="TOP TEXT" id="input-meme-top-text"></textarea>
                     <div class="control-checkbox">
-                        <input type="checkbox" name="Selection" id="top-text-check">
+                        <input type="checkbox" name="Selection" id="no-show-top-text-check">
                         <label>Sin texto superior</label>
                     </div>
                 </div>
                 <!-- Bottom Text Form  -->
                 <div class="control-panel-component">
                     <h4 class="component-title">INFERIOR</h4>
-                    <textarea rows="2" cols="30" placeholder="BOTTOM TEXT" id="bottom-text"></textarea>
+                    <textarea rows="2" cols="30" placeholder="BOTTOM TEXT" id="input-meme-bottom-text"></textarea>
                     <div class="control-checkbox">
-                        <input type="checkbox" name="Selection" id="bottom-text-check">
+                        <input type="checkbox" name="Selection" id="no-show-bottom-text-check">
                         <label>Sin texto inferior</label>
                     </div>
                 </div>
