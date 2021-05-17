@@ -33,7 +33,7 @@
             </div>
             <div class="header-btn">
                 <button id="dark-light-theme-btn">
-                    <i class="far fa-lightbulb"></i><span id="theme-button-text"> Modo oscuro</span>
+                    <i class="far fa-lightbulb"></i><span id="theme-button-text"> Modo claro</span>
                 </button>
             </div>
         </div>
@@ -175,17 +175,17 @@
                             <input type="number" name="Font Size" id="font-size-input" value="40">
                         </div>
                         <div class="item-column item-component">
-                            <button class="align-text-button" id="left-align-button">
+                            <button class="align-text-button" value="left-align">
                                 <i class="fas fa-align-left"></i>
                             </button>
                         </div>
                         <div class="item-column item-component">
-                            <button class="align-text-button" id="center-align-button">
+                            <button class="align-text-button" value="center-align">
                                 <i class="fas fa-align-center"></i>
                             </button>
                         </div>
                         <div class="item-column item-component">
-                            <button class="align-text-button" id="right-align-button">
+                            <button class="align-text-button" value="right-align">
                                 <i class="fas fa-align-right"></i>
                             </button>
                         </div>
@@ -198,14 +198,14 @@
                             <h4 class="component-title">COLOR</h4>
                             <div class="item-column item-component">
                                 <input type="color" name="Meme text color" id="meme-text-color-input" value="#000000">
-                                <span>#000000</span>
+                                <span id="color-hex-text">#000000</span>
                             </div>
                         </div>
                         <div class="meme-text-style">
                             <h4 class="component-title">FONDO</h4>
                             <div class="item-column item-component">
                                 <input type="color" name="Meme text background-color" id="meme-text-backgroundcolor-input" value="#FFFFFF">
-                                <span>#FFFFFF</span>
+                                <span id="backgroundcolor-hex-text">#FFFFFF</span>
                             </div>
                         </div>
                     </div>
@@ -219,13 +219,13 @@
                     <h4 class="component-title">CONTORNO</h4>
                     <div class="control-panel-columns">
                         <div class="item-column item-component">
-                            <button id="contour-none-btn">Ninguno</button>
+                            <button class="text-outline" value="outline-none">Ninguno</button>
                         </div>
                         <div class="item-column item-component">
-                            <button id="contour-light-btn">Claro</button>
+                            <button class="text-outline" value="outline-light">Claro</button>
                         </div>
                         <div class="item-column item-component">
-                            <button id="contour-dark-btn">Oscuro</button>
+                            <button class="text-outline" value="outline-dark">Oscuro</button>
                         </div>
                     </div>
                 </div>
@@ -233,14 +233,14 @@
                 <div class="control-panel-component">
                     <h4 class="component-title">ESPACIADO</h4>
                     <div class="item-component">
-                        <input type="number" name="number" id="" value="35">
+                        <input type="number" name="number" id="spacing-text" min="1" max="30" value="0">
                     </div>
                 </div>
                 <!-- Line Spacing Form -->
                 <div class="control-panel-component">
                     <h4 class="component-title">INTERLINEADO</h4>
                     <div class="item-component">
-                        <select name="select" id="spacing-select">
+                        <select name="select" id="line-spacing-text">
                             <option value="0.8">0.8</option>
                             <option value="1">1</option>
                             <option value="1.2" selected>1.2</option>

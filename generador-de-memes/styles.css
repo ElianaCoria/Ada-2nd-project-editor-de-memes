@@ -109,6 +109,9 @@ textarea:hover{
 span{
     margin: 0 5px;
 }
+select > option{
+    background-color: var(--background-color-panel);
+}
 /* 
 *******************************************************
                         Layout
@@ -270,6 +273,6 @@ header{
 .item-component:hover{
     background-color: var(--background-color-hover);
 }
-.align-text-button{
+/* .align-text-button{
     padding-bottom: 3px;
-}
+} */

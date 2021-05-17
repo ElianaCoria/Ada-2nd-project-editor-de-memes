@@ -6,14 +6,14 @@ const textThemeBtn = document.getElementById('theme-button-text');
 buttonToChangeTheme.addEventListener('click', () =>{
     if(document.body.className == 'dark-theme'){
         document.body.className = 'light-theme';
-        textThemeBtn.innerText = 'Modo claro'; 
+        textThemeBtn.innerText = 'Modo oscuro'; 
     } else{
         document.body.className = 'dark-theme';
-        textThemeBtn.innerText = ' Modo oscuro'; 
+        textThemeBtn.innerText = ' Modo claro'; 
     }
 })
 
-// Show Image - Text panel
+// Show Image and Text panel
 const imagePanelControlBtn = document.getElementById('image-panel-control-btn');
 const textPanelControlBtn = document.getElementById('text-panel-control-btn');
 const editPanelAside = document.getElementById('edit-panel');
@@ -39,7 +39,7 @@ closePanelBtn.addEventListener('click', () => {
     editPanelAside.style.right = '-270px';
 })
 
-// IMAGE - EVENTS
+// IMAGE panel - EVENTS
 
 // URL form (add image)
 const addUrlInput = document.getElementById('form-url');
@@ -120,7 +120,7 @@ const resetFilters = (event) => {
 
 resetFiltersBtn.addEventListener('click', resetFilters);
 
-// TEXT - EVENTS
+// TEXT panel - EVENTS
 
 // MEME top text
 const addTopTextMeme = document.getElementById('input-meme-top-text');
@@ -163,9 +163,168 @@ showBottomText.addEventListener('click', () => {
 // MEME Font Family
 
 const fontFamilyMeme = document.getElementById('font-family-select');
-const textsMeme = document.getElementsByClassName('text-meme');
 
 fontFamilyMeme.addEventListener('click', () => {
     topTextMeme.style.fontFamily = fontFamilyMeme.value;
     bottomTextMeme.style.fontFamily = fontFamilyMeme.value;
+})
+
+// MEME Font size
+
+const fontSizeMeme = document.getElementById('font-size-input');
+
+fontSizeMeme.addEventListener('input', () => {
+    const size = fontSizeMeme.value;
+    
+    topTextMeme.style.fontSize = `${size}px`;
+    bottomTextMeme.style.fontSize = `${size}px`;
+})
+
+// MEME aling text
+
+const alignBtns = document.getElementsByClassName('align-text-button');
+
+const alignment = (event) => {
+
+    const chosenAlignment = event.target.value;
+
+    switch (chosenAlignment) {
+        case 'left-align':
+            topTextMeme.style.textAlign = 'left';
+            bottomTextMeme.style.textAlign = 'left';
+            break;
+        case 'center-align':
+            topTextMeme.style.textAlign = 'center';
+            bottomTextMeme.style.textAlign = 'center';
+            break
+        case 'right-align':
+            topTextMeme.style.textAlign = 'right';
+            bottomTextMeme.style.textAlign = 'right';
+            break
+    }
+}
+
+for (const alignBtn of alignBtns){
+    alignBtn.addEventListener('click', alignment)
+}
+
+// MEME color font
+
+const colorTextMeme = document.getElementById('meme-text-color-input');
+const colorHexText = document.getElementById('color-hex-text');
+
+colorTextMeme.addEventListener('input', () => {
+    topTextMeme.style.color = colorTextMeme.value;
+    bottomTextMeme.style.color = colorTextMeme.value;
+    colorHexText.innerText = colorTextMeme.value;
+})
+
+// MEME backgroundcolor text
+
+const backgroundcolorTextMeme = document.getElementById('meme-text-backgroundcolor-input');
+const backgroundcolorHexText = document.getElementById('backgroundcolor-hex-text'); 
+
+backgroundcolorTextMeme.addEventListener('input', () => {
+    topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+    bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+    backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
+})
+
+// Button check - no show backgorund text
+
+const showBackgroundText = document.getElementById('text-backgroundcolor-check');
+
+showBackgroundText.addEventListener('click', () => {
+    if(showBackgroundText.checked){
+        topTextMeme.style.backgroundColor = 'transparent'
+        bottomTextMeme.style.backgroundColor = 'transparent';
+    } else{
+        topTextMeme.style.backgroundColor = 'white';
+        bottomTextMeme.style.backgroundColor = 'white';
+    } 
+})
+
+// MEME Contour Text
+
+const outlineButtons = document.getElementsByClassName('text-outline');
+
+const outlineText = (event) => {
+    const choosenOutline = event.target.value;
+
+    switch (choosenOutline) {
+        case 'outline-none':
+            topTextMeme.style = `text-shadow: none`;
+            bottomTextMeme.style = `text-shadow: none`;
+
+            topTextMeme.style.color = colorTextMeme.value;
+            bottomTextMeme.style.color = colorTextMeme.value;
+            colorHexText.innerText = colorTextMeme.value;
+
+            topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+            bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+            backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
+        break;
+        case 'outline-light':
+            topTextMeme.style = `text-shadow: 1px  0px 0px white,
+            0px  1px 0px white,
+           -1px  0px 0px white,
+            0px -1px 0px white;`;
+            bottomTextMeme.style = `text-shadow: 1px  0px 0px white,
+            0px  1px 0px white,
+           -1px  0px 0px white,
+            0px -1px 0px white;`;
+
+            topTextMeme.style.color = colorTextMeme.value;
+            bottomTextMeme.style.color = colorTextMeme.value;
+            colorHexText.innerText = colorTextMeme.value;
+
+            topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+            bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+            backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
+        break;
+        case 'outline-dark':
+            topTextMeme.style= `text-shadow: 1px  0px 0px black,
+            0px  1px 0px black,
+           -1px  0px 0px black,
+            0px -1px 0px black;`;
+        
+            bottomTextMeme.style= `text-shadow: 1px  0px 0px black,
+            0px  1px 0px black,
+           -1px  0px 0px black,
+            0px -1px 0px black;`;
+            
+            topTextMeme.style.color = colorTextMeme.value;
+            bottomTextMeme.style.color = colorTextMeme.value;
+            colorHexText.innerText = colorTextMeme.value;
+
+            topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+            bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+            backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
+        break;
+    }
+}
+
+for(const outlineBtn of outlineButtons){
+    outlineBtn.addEventListener('click', outlineText);
+    console.log(outlineText);
+}
+
+// MEME Spacing Text
+
+const spacingText = document.getElementById('spacing-text');
+
+spacingText.addEventListener('input', () => {
+    const spacing = spacingText.value;
+
+    topTextMeme.style.letterSpacing = `${spacing}px`;
+    bottomTextMeme.style.letterSpacing = `${spacing}px`;
+})
+
+// MEME line-Spacing Text
+
+const lineSpacingText = document.getElementById('line-spacing-text');
+
+lineSpacingText.addEventListener('click', () => {
+    topTextMeme.style.lineHeight = lineSpacingText.value;
+    bottomTextMeme.style.lineHeight = lineSpacingText.value;
 })
