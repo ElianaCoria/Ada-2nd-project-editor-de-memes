@@ -212,8 +212,8 @@ header{
     flex-wrap: wrap;
 }
 .meme-container{
-    width: 610px;
-    height: 610px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -273,6 +273,44 @@ header{
 .item-component:hover{
     background-color: var(--background-color-hover);
 }
-/* .align-text-button{
+.align-text-button{
     padding-bottom: 3px;
-} */
+}
+
+/* ----------RESPONSIVE----------- */
+
+@media screen and (max-width: 600px){
+
+    header{
+        padding: 20px;
+    }
+    .app-title{
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .header-btn{
+        margin: 2px;
+        padding: 0;
+        font-size: 10px;
+    }
+    .editor-container{
+        padding: 50px 10px 10px 10px;
+    }
+    .meme-container{
+        width: 100%;
+        height: 100%;
+    }
+    .text-meme{
+        padding: 10px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    /* -----Responsive Aside----- */
+    #edit-panel{
+        width: 100%;
+    }
+    .panel-subcontainer{
+        padding: 10px 30px;
+     }
+}
