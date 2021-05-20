@@ -212,22 +212,29 @@ header{
     flex-wrap: wrap;
 }
 .meme-container{
-    width: 600px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
+    width: 610px;
+    height: 610px;
     background-color: black;
-    justify-content: space-between;
 }
 /* image-meme-container */
 #image-meme{
     width: 100%;
     height: 100%;
+    position: relative;
     background-size: cover;
-    background-image: url(https://empresas.blogthinkbig.com/wp-content/uploads/2019/11/Imagen3-245003649.jpg?w=800);
+    background-position: center;
+    background-image: url(https://assets.entrepreneur.com/content/3x2/2000/20180706133830-meme.jpeg?width=700&crop=2:1);
+}
+#meme-top-text{
+    position: absolute;
+    top: 0;
+}
+#meme-bottom-text{
+    position: absolute;
+    bottom: 0;
 }
 .text-meme{
-    display: block;
+    width: 100%;
     background-color: white;
     text-align: center;
     padding: 25px;
@@ -308,7 +315,7 @@ header{
     }
     /* -----Responsive Aside----- */
     #edit-panel{
-        width: 100%;
+        width: 100vw;
     }
     .panel-subcontainer{
         padding: 10px 30px;

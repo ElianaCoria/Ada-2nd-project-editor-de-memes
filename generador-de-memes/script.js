@@ -36,7 +36,7 @@ textPanelControlBtn.addEventListener('click', () => {
 const closePanelBtn = document.getElementById('close-panel-btn');
 
 closePanelBtn.addEventListener('click', () => {
-    editPanelAside.style.right = '-270px';
+    editPanelAside.style.right = '-1000px';
 })
 
 // IMAGE panel - EVENTS
@@ -46,7 +46,7 @@ const addUrlInput = document.getElementById('form-url');
 const imageMeme = document.getElementById('image-meme');
 
 addUrlInput.addEventListener('change', () => {
-    imageMeme.style = `background-image: url(${addUrlInput.value})`;
+    imageMeme.style.backgroundImage = `url(${addUrlInput.value})`;
 })
 
 // Background-color - setting Image
@@ -55,12 +55,12 @@ const colorHexImage = document.getElementById('color-hex-image');
 
 backgroundColorImgInput.addEventListener('input', () => {
     imageMeme.style.backgroundColor = backgroundColorImgInput.value;
-    colorHexImage.innerText = backgroundColorImgInput.value;
+    colorHexImage.innerText = backgroundColorImgInput.value.toUpperCase();
 })
 
 const colorImageSetting = document.getElementById('background-color-image-setting');
 
-colorImageSetting.addEventListener('change', () => {
+colorImageSetting.addEventListener('input', () => {
     imageMeme.style.backgroundBlendMode = colorImageSetting.value;
 })
 
@@ -90,15 +90,15 @@ const filters = () => {
     console.log(imageMeme);
 }
 
-shineFilter.addEventListener("change", filters)
-opacityFilter.addEventListener("change", filters)
-contrastFilter.addEventListener("change", filters)
-blurFilter.addEventListener("change", filters)
-scaleFilter.addEventListener("change", filters)
-sepiaFilter.addEventListener("change", filters)
-hueFilter.addEventListener("change", filters)
-saturatedFilter.addEventListener("change", filters)
-negativeFilter.addEventListener("change", filters)
+shineFilter.addEventListener("input", filters)
+opacityFilter.addEventListener("input", filters)
+contrastFilter.addEventListener("input", filters)
+blurFilter.addEventListener("input", filters)
+scaleFilter.addEventListener("input", filters)
+sepiaFilter.addEventListener("input", filters)
+hueFilter.addEventListener("input", filters)
+saturatedFilter.addEventListener("input", filters)
+negativeFilter.addEventListener("input", filters)
 
 // Reset Button Filters
 
@@ -185,8 +185,12 @@ fontSizeMeme.addEventListener('input', () => {
 const alignBtns = document.getElementsByClassName('align-text-button');
 
 const alignment = (event) => {
-
-    const chosenAlignment = event.target.value;
+    let chosenAlignment;
+    if(event.target.nodeName == 'button'){
+        chosenAlignment = event.target.value;
+    } else{
+        chosenAlignment = event.target.parentNode.value;
+    }
 
     switch (chosenAlignment) {
         case 'left-align':
@@ -216,7 +220,7 @@ const colorHexText = document.getElementById('color-hex-text');
 colorTextMeme.addEventListener('input', () => {
     topTextMeme.style.color = colorTextMeme.value;
     bottomTextMeme.style.color = colorTextMeme.value;
-    colorHexText.innerText = colorTextMeme.value;
+    colorHexText.innerText = colorTextMeme.value.toUpperCase();
 })
 
 // MEME backgroundcolor text
@@ -227,7 +231,7 @@ const backgroundcolorHexText = document.getElementById('backgroundcolor-hex-text
 backgroundcolorTextMeme.addEventListener('input', () => {
     topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
     bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-    backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
+    backgroundcolorHexText.innerText = backgroundcolorTextMeme.value.toUpperCase();
 })
 
 // Button check - no show backgorund text
@@ -239,10 +243,26 @@ showBackgroundText.addEventListener('click', () => {
         topTextMeme.style.backgroundColor = 'transparent'
         bottomTextMeme.style.backgroundColor = 'transparent';
     } else{
-        topTextMeme.style.backgroundColor = 'white';
-        bottomTextMeme.style.backgroundColor = 'white';
+        topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+        bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
     } 
 })
+
+// const changeBackgroundText = () =>{
+//     if(! showBackgroundText.checked ){
+//         const useColor = backgroundcolorTextMeme.value
+//         console.log(useColor);
+
+//         topTextMeme.style.backgroundColor = useColor;
+//         bottomTextMeme.style.backgroundColor = useColor;
+//         backgroundcolorHexText.innerText = useColor.toUpperCase();
+//     } else{
+//         topTextMeme.style.backgroundColor = 'transparent';
+//         bottomTextMeme.style.backgroundColor = 'transparent';
+//     }
+// }
+
+// changeBackgroundText();
 
 // MEME Contour Text
 
@@ -253,60 +273,28 @@ const outlineText = (event) => {
 
     switch (choosenOutline) {
         case 'outline-none':
-            topTextMeme.style = `text-shadow: none`;
-            bottomTextMeme.style = `text-shadow: none`;
+            topTextMeme.style.textShadow = 'none';
+            
+            bottomTextMeme.style.textShadow = 'none';
 
-            topTextMeme.style.color = colorTextMeme.value;
-            bottomTextMeme.style.color = colorTextMeme.value;
-            colorHexText.innerText = colorTextMeme.value;
-
-            topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-            bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-            backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
         break;
         case 'outline-light':
-            topTextMeme.style = `text-shadow: 1px  0px 0px white,
-            0px  1px 0px white,
-           -1px  0px 0px white,
-            0px -1px 0px white;`;
-            bottomTextMeme.style = `text-shadow: 1px  0px 0px white,
-            0px  1px 0px white,
-           -1px  0px 0px white,
-            0px -1px 0px white;`;
+            topTextMeme.style.textShadow = '1px  0px 0px white, 0px  1px 0px white, -1px  0px 0px white, 0px -1px 0px white';
 
-            topTextMeme.style.color = colorTextMeme.value;
-            bottomTextMeme.style.color = colorTextMeme.value;
-            colorHexText.innerText = colorTextMeme.value;
+            bottomTextMeme.style.textShadow = '1px  0px 0px white, 0px  1px 0px white, -1px  0px 0px white, 0px -1px 0px white';
 
-            topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-            bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-            backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
         break;
         case 'outline-dark':
-            topTextMeme.style= `text-shadow: 1px  0px 0px black,
-            0px  1px 0px black,
-           -1px  0px 0px black,
-            0px -1px 0px black;`;
+            topTextMeme.style.textShadow = '1px  0px 0px black, 0px  1px 0px black, -1px  0px 0px black, 0px -1px 0px black';
         
-            bottomTextMeme.style= `text-shadow: 1px  0px 0px black,
-            0px  1px 0px black,
-           -1px  0px 0px black,
-            0px -1px 0px black;`;
+            bottomTextMeme.style.textShadow = '1px  0px 0px black, 0px  1px 0px black, -1px  0px 0px black, 0px -1px 0px black';
             
-            topTextMeme.style.color = colorTextMeme.value;
-            bottomTextMeme.style.color = colorTextMeme.value;
-            colorHexText.innerText = colorTextMeme.value;
-
-            topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-            bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-            backgroundcolorHexText.innerText = backgroundcolorTextMeme.value;
         break;
     }
 }
 
 for(const outlineBtn of outlineButtons){
     outlineBtn.addEventListener('click', outlineText);
-    console.log(outlineText);
 }
 
 // MEME Spacing Text
