@@ -223,7 +223,7 @@ header{
     position: relative;
     background-size: cover;
     background-position: center;
-    background-image: url(https://assets.entrepreneur.com/content/3x2/2000/20180706133830-meme.jpeg?width=700&crop=2:1);
+    /* background-image: url(https://assets.entrepreneur.com/content/3x2/2000/20180706133830-meme.jpeg?width=700&crop=2:1); */
 }
 #meme-top-text{
     position: absolute;

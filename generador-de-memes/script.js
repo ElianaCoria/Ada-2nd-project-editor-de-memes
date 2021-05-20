@@ -316,3 +316,14 @@ lineSpacingText.addEventListener('click', () => {
     topTextMeme.style.lineHeight = lineSpacingText.value;
     bottomTextMeme.style.lineHeight = lineSpacingText.value;
 })
+
+// Button download
+
+const downloadBtn = document.getElementById('download-meme-btn');
+
+downloadBtn.addEventListener('click', () => {
+    domtoimage.toBlob(imageMeme)
+    .then(function (blob) {
+        window.saveAs(blob, 'tu-meme.png');
+    });
+});
