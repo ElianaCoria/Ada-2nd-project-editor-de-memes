@@ -2,7 +2,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+/* 
+*******************************************************
+                Theme dark / light style
+*******************************************************
+*/
 body.dark-theme{
     --background-color-header: #242222;
     --font-color: #FFD700;
@@ -16,6 +20,7 @@ body.dark-theme{
     --background-color-reset-button: #FFD700;
     --color-reset-button: #242222;
     --reset-button-hover: #ffd900a1;
+    --boxshadow-focus: 0px 0px 10px 5px #ffd900c7;
 }
 body.light-theme{
     --background-color-header: rgb(181, 177, 177);
@@ -30,10 +35,11 @@ body.light-theme{
     --background-color-reset-button: #242222;
     --color-reset-button: #928a8a;
     --reset-button-hover: #242222b4;
+    --boxshadow-focus: 0px 0px 10px 5px #242222e1;
 }
 /* 
 *******************************************************
-                    Tags style
+                        Reset
 *******************************************************
 */
 body{
@@ -49,12 +55,15 @@ button, input, select, textarea{
     color: var(--font-color);
     font-family: var(--font-app);
     background-color: transparent;
+    border-radius: var(--border-radius);
 }
 input[type='number'],
 input[type='text'],
+input[type='url'],
 select,
 textarea{
     width: 100%;
+    height: 100%;
 }
 label {
     display: block;
@@ -103,14 +112,39 @@ textarea{
     border-radius: var(--border-radius);
     font-size: 12px;
 }
-textarea:hover{
-    background-color: var(--background-color-hover);
-}
 span{
-    margin: 0 5px;
+    margin: 0 3px;
 }
 select > option{
     background-color: var(--background-color-panel);
+}
+button:hover,
+input[type='number']:hover,
+input[type='text']:hover,
+input[type='url']:hover,
+input[type='range']:hover,
+input[type='checkbox']:hover,
+select:hover,
+textarea:hover,
+.item-color:hover{
+    background-color: var(--background-color-hover);
+}
+button:focus,
+input[type='number']:focus,
+input[type='text']:focus,
+input[type='url']:focus,
+input[type='range']:focus,
+input[type='checkbox']:focus,
+select:focus,
+textarea:focus{
+    box-shadow: var(--boxshadow-focus);
+    -webkit-box-shadow: var(--boxshadow-focus);
+    -moz-box-shadow: var(--boxshadow-focus);
+}
+.item-color:focus-within{
+    box-shadow: var(--boxshadow-focus);
+    -webkit-box-shadow: var(--boxshadow-focus);
+    -moz-box-shadow: var(--boxshadow-focus);
 }
 /* 
 *******************************************************
@@ -152,15 +186,6 @@ header{
    margin: 5px;
    padding: 10px;
 }
-.control-panel-component{
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-}
-.control-checkbox{
-    display: flex;
-    align-items: center;
-}
 /* 
 *******************************************************
                         Components
@@ -169,10 +194,6 @@ header{
 .header-btn{
     padding: 5px;
     margin: 5px 10px;
-    border-radius: var(--border-radius);
-}
-.header-btn:hover{
-    background-color: var(--background-color-hover);
 }
 #download-meme-btn{
     padding: 8px 10px;
@@ -184,6 +205,20 @@ header{
 #download-meme-btn:hover{
     background-color: #266829;
 }
+#download-meme-btn:focus{
+    box-shadow: 0px 0px 10px 5px #29c731;
+    -webkit-box-shadow: 0px 0px 10px 5px #29c731;
+    -moz-box-shadow: 0px 0px 10px 5px #29c731;
+}
+.control-panel-component{
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+.control-checkbox{
+    display: flex;
+    align-items: center;
+}
 #reset-filters-button{
     margin-top: 20px;
     padding: 5px 10px;
@@ -191,7 +226,6 @@ header{
     background-color: var(--background-color-reset-button);
     color: var(--color-reset-button);
     font-weight: 400;
-    
 }
 #reset-filters-button:hover{
     background-color: var(--reset-button-hover);
@@ -223,7 +257,7 @@ header{
     position: relative;
     background-size: cover;
     background-position: center;
-    /* background-image: url(https://assets.entrepreneur.com/content/3x2/2000/20180706133830-meme.jpeg?width=700&crop=2:1); */
+    background-image: url(https://assets.entrepreneur.com/content/3x2/2000/20180706133830-meme.jpeg?width=700&crop=2:1);
 }
 #meme-top-text{
     position: absolute;
@@ -267,23 +301,14 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 .item-component{
     height: 30px;
     margin: 2px;
-    padding: 5px 3px;
     background-color: var(--vs-background-color);
     border-radius: var(--border-radius);
     font-size: 12px;
 }
-.item-component:hover{
-    background-color: var(--background-color-hover);
-}
-.align-text-button{
-    padding-bottom: 3px;
-}
-
 /* ----------RESPONSIVE----------- */
 
 @media screen and (max-width: 600px){

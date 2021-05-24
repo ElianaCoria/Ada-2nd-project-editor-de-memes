@@ -21,18 +21,18 @@
     <header>
         <h1 class="app-title">Generador de Memes</h1>
         <div class="panel-theme-btns-container">
-            <div id="image-panel-control-btn" class="header-btn">
-                <button>
-                    <i class="fas fa-file-image"></i> Imagen
+            <div id="image-panel-control-btn">
+                <button aria-label="Abrir panel para editar Imagen" class="header-btn">
+                    <i class="fas fa-file-image" aria-hidden="true"></i> Imagen
                 </button>
             </div>
-            <div id="text-panel-control-btn" class="header-btn">
-                <button>
+            <div id="text-panel-control-btn">
+                <button aria-label="Abrir panel para editar Texto" class="header-btn">
                     <i class="fas fa-font"></i> Texto
                 </button>
             </div>
-            <div class="header-btn">
-                <button id="dark-light-theme-btn">
+            <div>
+                <button id="dark-light-theme-btn" aria-label="Cambiar tema de pantalla" class="header-btn">
                     <i class="far fa-lightbulb"></i><span id="theme-button-text"> Modo claro</span>
                 </button>
             </div>
@@ -45,14 +45,14 @@
      -->
     <main class="editor-container">
         <div class="meme-container">
-            <div id="image-meme" src="" alt="Imagen meme" aria-label="Imagen de tu meme">
-                <p id="meme-top-text" class="text-meme">TOP TEXT</p>
-                <p id="meme-bottom-text" class="text-meme">BOTTOM TEXT</p>
+            <div role="main" id="image-meme" alt="Imagen meme" aria-label="Imagen de tu meme">
+                <p id="meme-top-text" class="text-meme" aria-label="Texto superior de tu meme">TOP TEXT</p>
+                <p id="meme-bottom-text" class="text-meme" aria-label="Texto inferior de tu meme">BOTTOM TEXT</p>
             </div>
         </div>
         <div>
-            <button id="download-meme-btn">
-            <i class="fas fa-download"></i> Descargar meme
+            <button aria-label="Presiona para descargar tu meme" id="download-meme-btn">
+            <i class="fas fa-download" aria-hidden="true"></i> Descargar meme
         </button>
         </div>
     </main>
@@ -63,8 +63,8 @@
      -->
     <aside id="edit-panel"> 
         <div id="close-panel-btn">    
-            <button>
-                <i class="fas fa-times"></i>
+            <button aria-label="Cerrar panel" aria-label="Presiona para cerrar panel">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         </div>
         <div class="editor-panel-container">
@@ -74,22 +74,22 @@
                 <h2 class="panel-title">IMAGEN</h2>
                 <!-- URL Form -->
                 <div class="control-panel-component">
-                    <h4 class="url component-title">URL</h4>
+                    <h3 class="component-title">URL</h3>
                     <div class="item-component">
-                        <input type="url" name="url-img" id="form-url">
+                        <input type="url" name="url imagen" value="" id="form-url" placeholder="URL de la imagen" aria-label="Ingresar URL de la Imagen">
                     </div>
                 </div>
                 <!-- Image background color form -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">FONDO</h4>
+                    <h3 class="component-title">FONDO</h3>
                 <!-- Background color button and select -->
                     <div class="control-panel-columns">
-                        <div class="item-column item-component">
-                            <input type="color" name="background-color" class="input-image-background-color" id="background-color-image-input" value="#000000">
+                        <div class="item-column item-component item-color">
+                            <input type="color" name="background-color" class="input-image-background-color" id="background-color-image-input" value="#000000" aria-label="Seleccionar color de fondo de la Imagen">
                             <span id="color-hex-image" aria-hidden="true">#FFFFFF</span>
                         </div>
                         <div class="item-component">
-                            <select name="select" id="background-color-image-setting">
+                            <select id="background-color-image-setting" name="select background-color" aria-label="Seleccione tono de mezcla de la Imagen">
                                 <option value="none" selected>Ninguno</option>
                                 <option value="lighten">Aclarar</option>
                                 <option value="darken">Oscurecer</option>
@@ -102,36 +102,36 @@
                 </div>
                 <!-- Image filters form -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">FILTROS</h4>
+                    <h3 class="component-title">FILTROS</h3>
             
-                    <label class="image-filter-title">BRILLO </label> 
+                    <label for="brightness-form" class="image-filter-title">BRILLO </label> 
                     <input type="range" name="input-brightness" min="0" max="1" step="0.1" value="1" id="brightness-form" class="image-filter">
                     
-                    <label class="image-filter-title">OPACIDAD </label>
+                    <label for="opacity-form" class="image-filter-title">OPACIDAD </label>
                     <input type="range" name="input-opacity" min="0" max="1" step="0.1" value="1"  id="opacity-form" class="image-filter">
                     
-                    <label class="image-filter-title">CONTRASTE </label>
+                    <label for="contrast-form" class="image-filter-title">CONTRASTE </label>
                     <input type="range" name="input-contrast" min="100" max="1000" step="1%" value="100"  id="contrast-form" class="image-filter">
                     
-                    <label class="image-filter-title">DESENFOQUE </label>
+                    <label for="blur-form" class="image-filter-title">DESENFOQUE </label>
                     <input type="range" name="input-blur" min="0" max="10" step="0.1" value="0" id="blur-form" class="image-filter">
 
-                    <label class="image-filter-title">ESCALA DE GRISES </label>
+                    <label for="scale-form" class="image-filter-title">ESCALA DE GRISES </label>
                     <input type="range" name="input-scale" min="0" max="100" step="1" value="0" id="scale-form" class="image-filter">
                     
-                    <label class="image-filter-title">SEPIA </label>
+                    <label for="sepia-form" class="image-filter-title">SEPIA </label>
                     <input type="range" name="input-sepia" min="0" max="100" step="1" value="0" id="sepia-form" class="image-filter">
                     
-                    <label class="image-filter-title">HUE </label>
+                    <label for="hue-form" class="image-filter-title">HUE </label>
                     <input type="range" name="input-hue" min="0" max="359" step="1" value="0" id="hue-form" class="image-filter">
                     
-                    <label class="image-filter-title">SATURADO </label>
+                    <label for="saturated-form" class="image-filter-title">SATURADO </label>
                     <input type="range" name="input-saturated" min="100" max="1000" step="10" value="100" id="saturated-form" class="image-filter">
                     
-                    <label class="image-filter-title">NEGATIVO </label>
+                    <label for="negative-form" class="image-filter-title">NEGATIVO </label>
                     <input type="range" name="input-negative" min="0" max="1" step="0.1" value="0" id="negative-form" class="image-filter">
                 </div>
-                <button type="reset" id="reset-filters-button">Reestablecer filtros</button>
+                <button type="reset" id="reset-filters-button" aria-label="Reestablecer filtros de imagen">Reestablecer filtros</button>
             </section>
             <!-- **********Text editor panel************* -->
             <section class="panel-subcontainer" id="text-editor-panel">
@@ -139,27 +139,27 @@
                 <h2 class="text panel-title">TEXTO</h2>
                 <!-- Top Text Form  -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">SUPERIOR</h4>
-                    <textarea rows="2" cols="30" placeholder="TOP TEXT" id="input-meme-top-text"></textarea>
+                    <h3 class="component-title">SUPERIOR</h3>
+                    <textarea rows="2" cols="30" name="top text" placeholder="TOP TEXT" id="input-meme-top-text" aria-label="Ingresa texto superior"></textarea>
                     <div class="control-checkbox">
-                        <input type="checkbox" name="Selection" id="no-show-top-text-check">
-                        <label>Sin texto superior</label>
+                        <input type="checkbox" id="no-show-top-text-check" name="top text checkbox" value="">
+                        <label for="no-show-top-text-check">Sin texto superior</label>
                     </div>
                 </div>
                 <!-- Bottom Text Form  -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">INFERIOR</h4>
-                    <textarea rows="2" cols="30" placeholder="BOTTOM TEXT" id="input-meme-bottom-text"></textarea>
+                    <h3 class="component-title">INFERIOR</h3>
+                    <textarea rows="2" cols="30" name="bottom text" placeholder="BOTTOM TEXT" id="input-meme-bottom-text" aria-label="Ingresa texto inferior"></textarea>
                     <div class="control-checkbox">
-                        <input type="checkbox" name="Selection" id="no-show-bottom-text-check">
-                        <label>Sin texto inferior</label>
+                        <input type="checkbox" id="no-show-bottom-text-check" name="bottom text checkbox">
+                        <label for="no-show-bottom-text-check">Sin texto inferior</label>
                     </div>
                 </div>
                 <!-- Font-family; font-size; align-text Form -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">FUENTE</h4>
+                    <h3 class="component-title">FUENTE</h3>
                     <div class="item-component">
-                        <select name="Font Family" id="font-family-select">
+                        <select name="select font family" id="font-family-select" aria-label="Seleccionar fuente">
                             <option value="Arial">Arial</option>
                             <option value="Arial Black">Arial Black</option>
                             <option value="American Typewriter">American Typewriter</option>
@@ -173,21 +173,21 @@
                     </div>
                     <div class="control-panel-columns">
                         <div class="item-component">
-                            <input type="number" name="Font Size" id="font-size-input" value="40">
+                            <input type="number" name="Font size" id="font-size-input" value="40" aria-label="Seleccionar tamanio de fuente">
                         </div>
                         <div class="item-column item-component">
-                            <button class="align-text-button" value="left-align">
-                                <i class="fas fa-align-left" ></i>
+                            <button class="align-text-button" value="left-align" aria-label="Alinear texto a la izquierda">
+                                <i class="fas fa-align-left" aria-hidden="true"></i>
                             </button>
                         </div>
                         <div class="item-column item-component">
-                            <button class="align-text-button" value="center-align">
-                                <i class="fas fa-align-center"></i>
+                            <button class="align-text-button" value="center-align" aria-label="Alinear texto al centro">
+                                <i class="fas fa-align-center" aria-hidden="true"></i>
                             </button>
                         </div>
                         <div class="item-column item-component">
-                            <button class="align-text-button" value="right-align">
-                                <i class="fas fa-align-right"></i>
+                            <button class="align-text-button" value="right-align" aria-label="Alinear texto a la derecha">
+                                <i class="fas fa-align-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -195,53 +195,53 @@
                 <!-- Meme Text font color and Text background-color form -->
                 <div class="control-panel-component">
                     <div class="control-panel-columns">
-                        <div class="meme-text-style">
-                            <h4 class="component-title">COLOR</h4>
-                            <div class="item-column item-component">
-                                <input type="color" name="Meme text color" id="meme-text-color-input" value="#000000">
-                                <span id="color-hex-text">#000000</span>
+                        <div>
+                            <h3 class="component-title">COLOR</h3>
+                            <div class="item-column item-component item-color">
+                                <input type="color" name="Meme text color" id="meme-text-color-input" value="#000000" aria-label="Seleccionar color de fuente">
+                                <span id="color-hex-text" aria-hidden="true">#000000</span>
                             </div>
                         </div>
-                        <div class="meme-text-style">
-                            <h4 class="component-title">FONDO</h4>
-                            <div class="item-column item-component">
-                                <input type="color" name="Meme text background-color" id="meme-text-backgroundcolor-input" value="#FFFFFF">
-                                <span id="backgroundcolor-hex-text">#FFFFFF</span>
+                        <div>
+                            <h3 class="component-title">FONDO</h3>
+                            <div class="item-column item-component item-color">
+                                <input type="color" name="Meme text background-color" id="meme-text-backgroundcolor-input" value="#FFFFFF" aria-label="Seleccionar color de fondo de texto">
+                                <span id="backgroundcolor-hex-text" aria-hidden="true">#FFFFFF</span>
                             </div>
                         </div>
                     </div>
                     <div class="control-checkbox">
-                        <input type="checkbox" name="Selection" id="text-backgroundcolor-check">
-                        <label for="">Fondo transparente</label>
+                        <input type="checkbox" name="background transparent check" value=""  id="text-backgroundcolor-check">
+                        <label for="text-backgroundcolor-check">Fondo transparente</label>
                     </div>
                 </div>
                 <!-- Meme text contour form -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">CONTORNO</h4>
+                    <h3 class="component-title">CONTORNO</h3>
                     <div class="control-panel-columns">
                         <div class="item-column item-component">
-                            <button class="text-outline" value="outline-none">Ninguno</button>
+                            <button class="text-outline" value="outline-none" aria-label="Sin contorno de letra">Ninguno</button>
                         </div>
                         <div class="item-column item-component">
-                            <button class="text-outline" value="outline-light">Claro</button>
+                            <button class="text-outline" value="outline-light" aria-label="Contorno claro de letra">Claro</button>
                         </div>
                         <div class="item-column item-component">
-                            <button class="text-outline" value="outline-dark">Oscuro</button>
+                            <button class="text-outline" value="outline-dark" aria-label="Contorno oscuro de letra">Oscuro</button>
                         </div>
                     </div>
                 </div>
                 <!-- Spacing Form -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">ESPACIADO</h4>
+                    <h3 class="component-title">ESPACIADO</h3>
                     <div class="item-component">
-                        <input type="number" name="number" id="spacing-text" min="0" max="30" value="0">
+                        <input type="number" name="spacing text" id="spacing-text" min="0" max="30" value="0" aria-label="Seleccionar espacio entre letras">
                     </div>
                 </div>
                 <!-- Line Spacing Form -->
                 <div class="control-panel-component">
-                    <h4 class="component-title">INTERLINEADO</h4>
+                    <h3 class="component-title">INTERLINEADO</h3>
                     <div class="item-component">
-                        <select name="select" id="line-spacing-text">
+                        <select name="select line-spacing text" id="line-spacing-text" aria-label="Seleccionar interlineado">
                             <option value="0.8">0.8</option>
                             <option value="1">1</option>
                             <option value="1.2" selected>1.2</option>

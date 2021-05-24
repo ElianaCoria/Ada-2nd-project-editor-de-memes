@@ -227,16 +227,17 @@ colorTextMeme.addEventListener('input', () => {
 
 const backgroundcolorTextMeme = document.getElementById('meme-text-backgroundcolor-input');
 const backgroundcolorHexText = document.getElementById('backgroundcolor-hex-text'); 
+const showBackgroundText = document.getElementById('text-backgroundcolor-check');
 
 backgroundcolorTextMeme.addEventListener('input', () => {
-    topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-    bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
-    backgroundcolorHexText.innerText = backgroundcolorTextMeme.value.toUpperCase();
+    if(!showBackgroundText.checked){
+        topTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+        bottomTextMeme.style.backgroundColor = backgroundcolorTextMeme.value;
+        backgroundcolorHexText.innerText = backgroundcolorTextMeme.value.toUpperCase();
+    }
 })
 
 // Button check - no show backgorund text
-
-const showBackgroundText = document.getElementById('text-backgroundcolor-check');
 
 showBackgroundText.addEventListener('click', () => {
     if(showBackgroundText.checked){
@@ -248,22 +249,6 @@ showBackgroundText.addEventListener('click', () => {
     } 
 })
 
-// const changeBackgroundText = () =>{
-//     if(! showBackgroundText.checked ){
-//         const useColor = backgroundcolorTextMeme.value
-//         console.log(useColor);
-
-//         topTextMeme.style.backgroundColor = useColor;
-//         bottomTextMeme.style.backgroundColor = useColor;
-//         backgroundcolorHexText.innerText = useColor.toUpperCase();
-//     } else{
-//         topTextMeme.style.backgroundColor = 'transparent';
-//         bottomTextMeme.style.backgroundColor = 'transparent';
-//     }
-// }
-
-// changeBackgroundText();
-
 // MEME Contour Text
 
 const outlineButtons = document.getElementsByClassName('text-outline');
@@ -274,21 +259,16 @@ const outlineText = (event) => {
     switch (choosenOutline) {
         case 'outline-none':
             topTextMeme.style.textShadow = 'none';
-            
             bottomTextMeme.style.textShadow = 'none';
 
         break;
         case 'outline-light':
             topTextMeme.style.textShadow = '1px  0px 0px white, 0px  1px 0px white, -1px  0px 0px white, 0px -1px 0px white';
-
             bottomTextMeme.style.textShadow = '1px  0px 0px white, 0px  1px 0px white, -1px  0px 0px white, 0px -1px 0px white';
-
         break;
         case 'outline-dark':
             topTextMeme.style.textShadow = '1px  0px 0px black, 0px  1px 0px black, -1px  0px 0px black, 0px -1px 0px black';
-        
-            bottomTextMeme.style.textShadow = '1px  0px 0px black, 0px  1px 0px black, -1px  0px 0px black, 0px -1px 0px black';
-            
+            bottomTextMeme.style.textShadow = '1px  0px 0px black, 0px  1px 0px black, -1px  0px 0px black, 0px -1px 0px black';          
         break;
     }
 }
