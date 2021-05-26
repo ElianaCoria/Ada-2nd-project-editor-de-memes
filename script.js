@@ -237,7 +237,7 @@ backgroundcolorTextMeme.addEventListener('input', () => {
     }
 })
 
-// Button check - no show backgorund text
+// Button check - no show background text
 
 showBackgroundText.addEventListener('click', () => {
     if(showBackgroundText.checked){
@@ -297,7 +297,7 @@ lineSpacingText.addEventListener('click', () => {
     bottomTextMeme.style.lineHeight = lineSpacingText.value;
 })
 
-// Button download
+// Button download meme
 
 const downloadBtn = document.getElementById('download-meme-btn');
 
